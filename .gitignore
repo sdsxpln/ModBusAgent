@@ -1,0 +1,6 @@
+dst/*
+*.o
+a.out
+ctag
+*.gch
+fastmigrate
