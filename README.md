@@ -1,5 +1,5 @@
 # ModBusAgent
-Just only transfer network packet from IOT gateway to other(Your Ip)base on ModBus data transfer protocol 
+Just only transfer network packet from IOT gateway to other(Your Ip) base on ModBus data transfer protocol 
 
 ## Requirement
 - gcc 
