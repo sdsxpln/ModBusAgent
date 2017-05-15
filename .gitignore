@@ -4,3 +4,5 @@ a.out
 ctag
 *.gch
 fastmigrate
+.swp
+.un~
