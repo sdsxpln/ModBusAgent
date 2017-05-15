@@ -3,6 +3,6 @@ dst/*
 a.out
 ctag
 *.gch
-fastmigrate
 .swp
 .un~
+ModBusAgent

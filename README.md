@@ -10,7 +10,8 @@ Just only transfer network packet from IOT gateway to other(Your Ip) base on Mod
 - program then save the changes
 - make
 - ./ModBusAgent
-- debug it with $ gdb ModBusAgent
+- gdb
+- valgrind 
 
 ## Layout
 ```
