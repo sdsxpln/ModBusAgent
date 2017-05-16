@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include "list.h"
 
 #define     TRUE    1
 #define     FALSE   0
@@ -12,7 +13,7 @@
 #define OPEN_COFNIG_FILE_ERROR      "open config file error"
 #define CONF_FILE_NOT_EXISTS        "config file not exists,You should check conf.ini.example then make new \n one named conf.ini"
 
-/**
+/**{{{
  *  check config file exists
  */
 int check_conf_exists(const char *file_path)
@@ -89,6 +90,21 @@ int split_line(const char *line, char *delimiter, char ***res)
 
     return count; 
 }
+/*}}}*/
+/**
+ *  fill data into linked list
+ */
+void fill_conf_list(List **head, char *stadium_id, char *app_id, char *app_key)
+{
+    if ( *head == NULL ){
+        // need init linked list
+        head = init_list(head); 
+    }else{
+        // append data to linked list node
+        *head = append_list(*head, stadium_id, app_id, app_key);
+    }
+}    
+
 
 /**
  *  parse config file line by line
@@ -105,6 +121,7 @@ int parse_conf(FILE *fp)
     short int read_stadium_conf = -1;          // -1 not ready 1 ready 2 done
     char **res = NULL;                         // save result from split_line returned
     int res_len, i;
+    List *head;
 
     while( (read = getline(&line, &len, fp)) != -1){
         if ( read > 1 ){
@@ -121,19 +138,27 @@ int parse_conf(FILE *fp)
                 // current line be longs to which section(common or stadium)
                 if ( read_common_conf == 1 && read_stadium_conf == -1 ){
                     // parse stadium section
-                     printf("%s\n", line); 
-                    res_len = split_line(line, delimiter, &res);
-                    for( i = 0; i < res_len; i++){
-                        printf("key order %d value is %s\n", i, res[i]);
-                    } 
+                     /*printf("%s\n", line); */
+                    /*res_len = split_line(line, delimiter, &res);*/
+                    /*for( i = 0; i < res_len; i++){*/
+                        /*printf("key order %d value is %s\n", i, res[i]);*/
+                    /*} */
+                    char * stadium_id = "100001";
+                    char * app_id = "1223123";
+                    char * app_key = "23429834u29834ufsdfjskdfj";
+                    fill_conf_list(&head, stadium_id, app_id, app_key);
                 }else if( read_common_conf == 2 && read_stadium_conf == 1 ){
                     // parse stadium section
                     /*printf("%s\n", line); */
-                    printf("%s\n", line); 
-                    res_len = split_line(line, delimiter, &res);
-                    for( i = 0; i < res_len; i++){
-                        printf("key order %d value is %s\n", i, res[i]);
-                    } 
+                    /*printf("%s\n", line); */
+                    /*res_len = split_line(line, delimiter, &res);*/
+                    /*for( i = 0; i < res_len; i++){*/
+                        /*printf("key order %d value is %s\n", i, res[i]);*/
+                    /*} */
+                    char * stadium_id = "100001";
+                    char * app_id = "1223123";
+                    char * app_key = "23429834u29834ufsdfjskdfj";
+                    fill_conf_list(&head, stadium_id, app_id, app_key);
                 }
             }
         }

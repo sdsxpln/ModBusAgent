@@ -10,14 +10,14 @@
  *  just init linked list 
  */
 void init_list(List **head)
-{/*{{{*/
+{
     List *new;
 
-    if ( *head = NULL ){
+    if ( *head == NULL ){
         new = (List *)malloc(sizeof(List));
         *head = new;     
     }
-}/*}}}*/
+}
 
 /**
  *  append node to linked list 
@@ -25,7 +25,7 @@ void init_list(List **head)
  */ 
 
 List* append_list(List *head, char* stadium_id, char* app_id, char* app_key)
-{/*{{{*/
+{
     List *new, *current;
 
     if ( head == NULL ){
@@ -56,13 +56,13 @@ List* append_list(List *head, char* stadium_id, char* app_id, char* app_key)
     current->next = new;
     
     return head;
-}/*}}}*/
+}
 
 /**
  *  get linked list length
  */
 int link_len(List *head)
-{/*{{{*/
+{
     int len=0;
 
     do {
@@ -71,14 +71,14 @@ int link_len(List *head)
     }while( head->next == NULL);
 
     return len;
-}/*}}}*/
+}
 
 /**
  *  search on linked list
  *  start from head until find node or reached tail
  */
 List* search_list(List *head, char* stadium_id)
-{/*{{{*/
+{
     // traversal linked list
     List *current;
 
@@ -91,4 +91,4 @@ List* search_list(List *head, char* stadium_id)
     }
     
     return current;
-}/*}}}*/
+}

@@ -4,16 +4,11 @@
 #ifndef _LIST_H
 #define _LIST_H
 
-// define constants
-#define STADIUM_ID_LEN      6
-#define APP_ID_LEN          32
-#define APP_KEY_LEN         32
-
 struct LIST {
     // data area
-    char stadium_id[STADIUM_ID_LEN]; 
-    char app_id[APP_ID_LEN]; 
-    char app_key[APP_KEY_LEN]; 
+    char *stadium_id; 
+    char *app_id; 
+    char *app_key; 
 
     // ptr area
     struct LIST *next;
