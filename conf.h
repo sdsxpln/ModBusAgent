@@ -3,11 +3,11 @@
  */
 #ifndef _CONF_H
 #define _CONF_H
-
+#include <stdio.h>
 #define CONF_VERSION "0.1.1"
 
-extern char *get_ini(const char *section, const char *key);
-extern char *free_ini(const char *section, const char *key);
-extern void ini_load(const char *filename);
+extern int check_conf_exists(const char *file_path);
+extern int parse_conf(FILE *fp);
+extern void load_conf(const char *file_path);
 
 #endif /* _CONF_H */

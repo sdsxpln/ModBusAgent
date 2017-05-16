@@ -21,9 +21,9 @@ struct LIST {
 typedef struct LIST List;
 
 // linked list methods
-extern List* search_list(List *head, char* stadium_id)
-extern int link_len(List *head)
-extern List* append_list(List *head, char* stadium_id, char* app_id, char* app_key)
-extern void init_list(List **head)
+extern List* search_list(List *head, char* stadium_id);
+extern int link_len(List *head);
+extern List* append_list(List *head, char* stadium_id, char* app_id, char* app_key);
+extern void init_list(List **head);
 
 #endif /* _CONF_H */

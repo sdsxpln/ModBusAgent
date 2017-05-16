@@ -2,13 +2,14 @@ CC = gcc
 CFLAGS  = -ggdb3 -Wall
 TARGET = ModBusAgent
 
+objects = conf.o main.o
+
 default: ModBusAgent
 
-ModBusAgent:  main.o 
-	$(CC) $(CFLAGS) -o $(TARGET)  main.o
+ModBusAgent:  $(objects)
+	$(CC) $(CFLAGS) -o $(TARGET) $(objects)
 
-main.o:  main.c 
-	$(CC) $(CFLAGS) -c main.c
+conf.o: conf.h
 
 .PHONY : clean
 clean:
