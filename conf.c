@@ -98,7 +98,7 @@ void fill_conf_list(List **head, char *stadium_id, char *app_id, char *app_key)
 {
     if ( *head == NULL ){
         // need init linked list
-        head = init_list(head); 
+        init_list(head); 
     }else{
         // append data to linked list node
         *head = append_list(*head, stadium_id, app_id, app_key);
@@ -145,8 +145,19 @@ int parse_conf(FILE *fp)
                     /*} */
                     char * stadium_id = "100001";
                     char * app_id = "1223123";
-                    char * app_key = "23429834u29834ufsdfjskdfj";
+                    char * app_key = "234";
+                    printf("%s\n", "-");
                     fill_conf_list(&head, stadium_id, app_id, app_key);
+                    printf("%p\n", head);
+                    append_list(head, stadium_id, app_id, app_key);
+                    printf("%p\n", head);
+                    printf("%s\n", "-");
+                    /*printf("%s\n", *head->next);*/
+                    /*printf("%s\n", "---");*/
+                    /*printf("%s\n", *head->stadium_id);*/
+                    /*printf("%s\n", "----");*/
+                    /*printf("%s\n", *head->app_id);*/
+                    /*printf("%s\n", "-----");*/
                 }else if( read_common_conf == 2 && read_stadium_conf == 1 ){
                     // parse stadium section
                     /*printf("%s\n", line); */
@@ -155,10 +166,14 @@ int parse_conf(FILE *fp)
                     /*for( i = 0; i < res_len; i++){*/
                         /*printf("key order %d value is %s\n", i, res[i]);*/
                     /*} */
+                    printf("%s\n", "++++");
                     char * stadium_id = "100001";
                     char * app_id = "1223123";
                     char * app_key = "23429834u29834ufsdfjskdfj";
                     fill_conf_list(&head, stadium_id, app_id, app_key);
+                    printf("%s\n", head->stadium_id);
+                    printf("%s\n", head->app_id);
+                    printf("%s\n", head->app_key);
                 }
             }
         }

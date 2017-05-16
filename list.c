@@ -84,7 +84,7 @@ List* search_list(List *head, char* stadium_id)
 
     current = head;
     while( current->next == NULL ){
-        if ( atoi(current->next) == atoi(stadium_id) ){
+        if ( atoi(current->stadium_id) == atoi(stadium_id) ){
             break;
         }
         current = current->next;
