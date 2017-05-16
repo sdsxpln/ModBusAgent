@@ -32,9 +32,21 @@ int parse_conf(FILE *fp)
 {
     char *line = NULL;
     size_t len = 0;
+    char *common = "[common]\n";         // getline read empty line return the \n char
+    char *stadium = "[stadium]\n";       // getline read empty line return the \n char
+    size_t read;
 
-    while(getline(&line, &len, fp) != -1){
-        printf("%s\n", line); 
+    while( (read = getline(&line, &len, fp)) != -1){
+        if ( read > 1 ){
+            // except \n
+            if ( strcmp(line, common) == 0 ){
+                // parse common conf 
+                printf("%s\n", line);
+            }else if( strcmp(line, stadium) == 0 ){
+                // parse stadium conf 
+                printf("%s\n", line);
+            }
+        }
     }
 
     free(line);
