@@ -35,16 +35,29 @@ int parse_conf(FILE *fp)
     char *common = "[common]\n";         // getline read empty line return the \n char
     char *stadium = "[stadium]\n";       // getline read empty line return the \n char
     size_t read;
+    short int read_common_conf = -1;           // -1 not ready 1 ready 2 done
+    short int read_stadium_conf = -1;          // -1 not ready 1 ready 2 done
 
     while( (read = getline(&line, &len, fp)) != -1){
         if ( read > 1 ){
             // except \n
             if ( strcmp(line, common) == 0 ){
                 // parse common conf 
-                printf("%s\n", line);
+                read_common_conf = 1;
             }else if( strcmp(line, stadium) == 0 ){
                 // parse stadium conf 
-                printf("%s\n", line);
+                read_common_conf = 2;
+                read_stadium_conf = 1;
+            }else{
+                // according to the value of read_common_conf and read_stadium_conf check 
+                // current line be longs to which section(common or stadium)
+                if ( read_common_conf == 1 && read_stadium_conf == -1 ){
+                    // parse stadium section
+                    printf("%s\n", line); 
+                }else if( read_common_conf == 2 && read_stadium_conf == 1 ){
+                    // parse stadium section
+                    printf("%s\n", line); 
+                }
             }
         }
     }
@@ -52,6 +65,13 @@ int parse_conf(FILE *fp)
     free(line);
     fclose(fp);
     return 0;
+}
+
+/**
+ *  split string with specific delimiter
+ */
+char ** split_line(){
+    
 }
 
 /**
