@@ -28,18 +28,19 @@ int check_conf_exists(const char *file_path)
 /**
  *  split string with specific delimiter
  */
-int split_line(const char *line, char delimiter, char ***res)
+int split_line(const char *line, char *delimiter, char ***res)
 {
     int count = 1;    
     int token_len = 1;
     int i = 0;
-    char *p, *str;
+    char *p;
     char *t;
 
-    p = str;
+    // traversal each char
+    p = (char *)line;
     while (*p != '\0')
     {
-        if (*p == delimiter)
+        if (*p == *delimiter)
             count++;
         p++;
     }
@@ -48,10 +49,10 @@ int split_line(const char *line, char delimiter, char ***res)
     if (*res == NULL)
         exit(1);
 
-    p = str;
+    p = (char *)line;
     while (*p != '\0')
     {
-        if (*p == delimiter)
+        if (*p == *delimiter)
         {
             (*res)[i] = (char*) malloc( sizeof(char) * token_len );
             if ((*res)[i] == NULL)
@@ -68,11 +69,11 @@ int split_line(const char *line, char delimiter, char ***res)
         exit(1);
 
     i = 0;
-    p = str;
+    p = (char *)line;
     t = ((*res)[i]);
     while (*p != '\0')
     {
-        if (*p != delimiter && *p != '\0')
+        if (*p != *delimiter && *p != '\0')
         {
             *t = *p;
             t++;
@@ -94,7 +95,7 @@ int split_line(const char *line, char delimiter, char ***res)
  */
 int parse_conf(FILE *fp)
 {
-    char delimiter = '=';
+    char *delimiter = "=";
     char *line = NULL;
     size_t len = 0;
     char *common = "[common]\n";         // getline read empty line return the \n char
@@ -103,7 +104,7 @@ int parse_conf(FILE *fp)
     short int read_common_conf = -1;           // -1 not ready 1 ready 2 done
     short int read_stadium_conf = -1;          // -1 not ready 1 ready 2 done
     char **res = NULL;                         // save result from split_line returned
-    int res_len;
+    int res_len, i;
 
     while( (read = getline(&line, &len, fp)) != -1){
         if ( read > 1 ){
@@ -120,15 +121,19 @@ int parse_conf(FILE *fp)
                 // current line be longs to which section(common or stadium)
                 if ( read_common_conf == 1 && read_stadium_conf == -1 ){
                     // parse stadium section
-                    printf("%s\n", line); 
-                    res_len = split_line(line, delimiter, &&res);
-                    printf("%d\n", line); 
+                     printf("%s\n", line); 
+                    res_len = split_line(line, delimiter, &res);
+                    for( i = 0; i < res_len; i++){
+                        printf("key order %d value is %s\n", i, res[i]);
+                    } 
                 }else if( read_common_conf == 2 && read_stadium_conf == 1 ){
                     // parse stadium section
                     /*printf("%s\n", line); */
                     printf("%s\n", line); 
-                    res_len = split_line(line, delimiter, &&res);
-                    printf("%d\n", line); 
+                    res_len = split_line(line, delimiter, &res);
+                    for( i = 0; i < res_len; i++){
+                        printf("key order %d value is %s\n", i, res[i]);
+                    } 
                 }
             }
         }
