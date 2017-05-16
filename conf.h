@@ -1,9 +1,8 @@
-#ifndef _CONF_H
-#define _CONF_H
-
 /**
  *  'parse_conf.h' contains parse config file function declare
  */
+#ifndef _CONF_H
+#define _CONF_H
 
 #define CONF_VERSION "0.1.1"
 

@@ -10,14 +10,14 @@
  *  just init linked list 
  */
 void init_list(List **head)
-{
+{/*{{{*/
     List *new;
 
     if ( *head = NULL ){
         new = (List *)malloc(sizeof(List));
         *head = new;     
     }
-}
+}/*}}}*/
 
 /**
  *  append node to linked list 
@@ -25,12 +25,22 @@ void init_list(List **head)
  */ 
 
 List* append_list(List *head, char* stadium_id, char* app_id, char* app_key)
-{
-    List *new;
+{/*{{{*/
+    List *new, *current;
 
-    if ( head != NULL ){
+    if ( head == NULL ){
         printf("%s\n", LINKED_LIST_NOT_INIT);
     }    
+
+    current = head;
+    // traversal linked list
+    while ( current->next != NULL ){
+        if ( atoi(current->stadium_id) < atoi(stadium_id) ){
+            break; 
+        } 
+
+        current = current->next;
+    }
 
     new = (List *)malloc(sizeof(List));
     if ( new == NULL ){
@@ -43,7 +53,42 @@ List* append_list(List *head, char* stadium_id, char* app_id, char* app_key)
     new->app_key = app_key;
 
     // ptr 
-    head->next = new;
+    current->next = new;
     
     return head;
-}
+}/*}}}*/
+
+/**
+ *  get linked list length
+ */
+int link_len(List *head)
+{/*{{{*/
+    int len=0;
+
+    do {
+        len += 1;
+        head = head->next; 
+    }while( head->next == NULL);
+
+    return len;
+}/*}}}*/
+
+/**
+ *  search on linked list
+ *  start from head until find node or reached tail
+ */
+List* search_list(List *head, char* stadium_id)
+{/*{{{*/
+    // traversal linked list
+    List *current;
+
+    current = head;
+    while( current->next == NULL ){
+        if ( atoi(current->next) == atoi(stadium_id) ){
+            break;
+        }
+        current = current->next;
+    }
+    
+    return current;
+}/*}}}*/

@@ -1,3 +1,6 @@
+/**
+ *  'list.h' use linked list storage the config file 
+ */
 #ifndef _LIST_H
 #define _LIST_H
 
@@ -6,11 +9,6 @@
 #define APP_ID_LEN          32
 #define APP_KEY_LEN         32
 
-
-
-/**
- *  'list.h' use linked list storage the config file 
- */
 struct LIST {
     // data area
     char stadium_id[STADIUM_ID_LEN]; 
@@ -23,8 +21,9 @@ struct LIST {
 typedef struct LIST List;
 
 // linked list methods
-extern void init_list(List **head, char *stadium_id, char *app_id, char *app_key)
-
-
+extern List* search_list(List *head, char* stadium_id)
+extern int link_len(List *head)
+extern List* append_list(List *head, char* stadium_id, char* app_id, char* app_key)
+extern void init_list(List **head)
 
 #endif /* _CONF_H */
