@@ -15,11 +15,13 @@ Just only transfer network packet from IOT gateway to other(Your Ip) base on Mod
 
 ## Layout
 ```
-- .Makefile
-- conf.ini  // config file
-- conf.h    // config header
-- conf.c    // config parse
-- main.c    // entry
++ README.md
++ src
+  | Makefile  // Makefile
+  | conf.ini  // config file
+  | conf.h    // config header
+  | conf.c    // config parse
+  | main.c    // entry
 ```
 
 ## ProjectRoot
