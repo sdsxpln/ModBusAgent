@@ -6,3 +6,4 @@ ctag
 .swp
 .un~
 ModBusAgent
+.ycm_extra_conf.py
