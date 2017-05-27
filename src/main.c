@@ -13,8 +13,13 @@
 
 #include "iniparser.h"
 
-// functions declaration
+// define some constants
+#define START_GATEWAY_PORT 8888
+#define START_API_PORT 8801
 
+// functions declaration
+int start_socket(int start_port);
+void create_process(void);
 
 /**
  * @brief entry 
@@ -37,5 +42,40 @@ main(int argc, char * argv[])
         ini_name = argv[1];
         ini = iniparser_load(ini_name);     
         iniparser_dump(ini, stderr);
+    }
+}
+
+
+/**
+ * @brief create new daemon process listen to specified port
+ *
+ * @param port listening port
+ *
+ * @return 
+ */
+int 
+start_socket(int port)
+{
+
+}
+
+/**
+ * @brief create new process
+ */
+void
+create_process(void)
+{
+    pid_t pid = fork();
+
+    if (pid == 0) {
+        // create child process success
+
+    
+    } else if(pid > 0) {
+        // parent process
+    
+    } else {
+        // fork child process error
+        fprintf(stderr, "fork child error\n");
     }
 }
