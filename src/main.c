@@ -14,32 +14,28 @@
 #include "iniparser.h"
 
 // functions declaration
-int  parse_ini_file(char * ini_name);
 
-int main(int argc, char * argv[])
+
+/**
+ * @brief entry 
+ *
+ * @param argc numbers of args
+ * @param argv[] config file name of first one
+ *
+ * @return void
+ */
+void 
+main(int argc, char * argv[])
 {
-    int     status ;
+    dictionary  *   ini;
+    char *ini_name;
 
-    status = parse_ini_file(argv[1]);
-
-    return status ;
-}
-
-int parse_ini_file(char * ini_name)
-{
-    dictionary  *   ini ;
-
-    /* Some temporary variables to hold query results */
-    int             b ;
-    int             i ;
-    double          d ;
-    const char  *   s ;
-
-    ini = iniparser_load(ini_name);
-    if (ini==NULL) {
-        fprintf(stderr, "cannot parse file: %s\n", ini_name);
-        return -1 ;
+    // check the numbers of args
+    if (argc!=2) {
+        fprintf(stderr, "please provide a config file name\n");
+    }else{
+        ini_name = argv[1];
+        ini = iniparser_load(ini_name);     
+        iniparser_dump(ini, stderr);
     }
-    iniparser_dump(ini, stderr);
-    return 0;
 }
