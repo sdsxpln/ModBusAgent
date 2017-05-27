@@ -2,15 +2,15 @@ CC = gcc
 CFLAGS  = -ggdb3 -Wall
 TARGET = ModBusAgent
 
-objects = list.o conf.o main.o
+objects = iniparser.o dictionary.o main.o
 
 default: ModBusAgent
 
 ModBusAgent:  $(objects)
 	$(CC) $(CFLAGS) -o $(TARGET) $(objects)
 
-conf.o: conf.h
-list.o: list.h
+iniparser.o: iniparser.h
+dictionary.o: dictionary.h
 
 .PHONY : clean
 clean:
