@@ -19,8 +19,10 @@ Just only transfer network packet from IOT gateway to other(Your Ip) base on Mod
 + src
   | Makefile  // Makefile
   | conf.ini  // config file
-  | conf.h    // config header
-  | conf.c    // config parse
+  | iniparser.h    // iniparser header
+  | iniparser.c    // iniparser 
+  | dictionary.h   // dictionary header
+  | dictionary.c   // dictionary 
   | main.c    // entry
 ```
 
