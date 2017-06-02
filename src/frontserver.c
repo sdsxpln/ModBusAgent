@@ -17,4 +17,12 @@
  */
 int start_front_server(int port)
 {
+    struct address;
+
+    //type of socket created
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_port = htons( port );
+
+
 }
