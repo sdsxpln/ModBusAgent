@@ -1,0 +1,72 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ASCIILINESZ	iniparser.c	15;"	d	file:
+CC	Makefile	/^CC = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS  = -ggdb3 -Wall$/;"	m
+DICTMINSZ	dictionary.c	27;"	d	file:
+DICT_INVALID_KEY	dictionary.c	30;"	d	file:
+FALSE	main.c	26;"	d	file:
+INI_INVALID_KEY	iniparser.c	16;"	d	file:
+LINE_COMMENT	iniparser.c	/^    LINE_COMMENT,$/;"	e	enum:_line_status_	file:
+LINE_EMPTY	iniparser.c	/^    LINE_EMPTY,$/;"	e	enum:_line_status_	file:
+LINE_ERROR	iniparser.c	/^    LINE_ERROR,$/;"	e	enum:_line_status_	file:
+LINE_SECTION	iniparser.c	/^    LINE_SECTION,$/;"	e	enum:_line_status_	file:
+LINE_UNPROCESSED	iniparser.c	/^    LINE_UNPROCESSED,$/;"	e	enum:_line_status_	file:
+LINE_VALUE	iniparser.c	/^    LINE_VALUE$/;"	e	enum:_line_status_	file:
+MAXVALSZ	dictionary.c	24;"	d	file:
+START_API_PORT	main.c	24;"	d	file:
+START_GATEWAY_PORT	main.c	23;"	d	file:
+TARGET	Makefile	/^TARGET = ModBusAgent$/;"	m
+TRUE	main.c	25;"	d	file:
+_DICTIONARY_H_	dictionary.h	15;"	d
+_INIPARSER_H_	iniparser.h	11;"	d
+_dictionary_	dictionary.h	/^typedef struct _dictionary_ {$/;"	s
+_line_status_	iniparser.c	/^typedef enum _line_status_ {$/;"	g	file:
+create_process	main.c	/^create_process(void)$/;"	f
+default_error_callback	iniparser.c	/^static int default_error_callback(const char *format, ...)$/;"	f	file:
+dictionary	dictionary.h	/^} dictionary ;$/;"	t	typeref:struct:_dictionary_
+dictionary_del	dictionary.c	/^void dictionary_del(dictionary * d)$/;"	f
+dictionary_dump	dictionary.c	/^void dictionary_dump(const dictionary * d, FILE * out)$/;"	f
+dictionary_get	dictionary.c	/^const char * dictionary_get(const dictionary * d, const char * key, const char * def)$/;"	f
+dictionary_grow	dictionary.c	/^static int dictionary_grow(dictionary * d)$/;"	f	file:
+dictionary_hash	dictionary.c	/^unsigned dictionary_hash(const char * key)$/;"	f
+dictionary_new	dictionary.c	/^dictionary * dictionary_new(size_t size)$/;"	f
+dictionary_set	dictionary.c	/^int dictionary_set(dictionary * d, const char * key, const char * val)$/;"	f
+dictionary_unset	dictionary.c	/^void dictionary_unset(dictionary * d, const char * key)$/;"	f
+hash	dictionary.h	/^    unsigned     *  hash ;  \/** List of hash values for keys *\/$/;"	m	struct:_dictionary_
+iniparser_dump	iniparser.c	/^void iniparser_dump(const dictionary * d, FILE * f)$/;"	f
+iniparser_dump_ini	iniparser.c	/^void iniparser_dump_ini(const dictionary * d, FILE * f)$/;"	f
+iniparser_dumpsection_ini	iniparser.c	/^void iniparser_dumpsection_ini(const dictionary * d, const char * s, FILE * f)$/;"	f
+iniparser_error_callback	iniparser.c	/^static int (*iniparser_error_callback)(const char*, ...) = default_error_callback;$/;"	v	file:
+iniparser_find_entry	iniparser.c	/^int iniparser_find_entry(const dictionary * ini, const char * entry)$/;"	f
+iniparser_freedict	iniparser.c	/^void iniparser_freedict(dictionary * d)$/;"	f
+iniparser_getboolean	iniparser.c	/^int iniparser_getboolean(const dictionary * d, const char * key, int notfound)$/;"	f
+iniparser_getdouble	iniparser.c	/^double iniparser_getdouble(const dictionary * d, const char * key, double notfound)$/;"	f
+iniparser_getint	iniparser.c	/^int iniparser_getint(const dictionary * d, const char * key, int notfound)$/;"	f
+iniparser_getlongint	iniparser.c	/^long int iniparser_getlongint(const dictionary * d, const char * key, long int notfound)$/;"	f
+iniparser_getnsec	iniparser.c	/^int iniparser_getnsec(const dictionary * d)$/;"	f
+iniparser_getseckeys	iniparser.c	/^const char ** iniparser_getseckeys(const dictionary * d, const char * s, const char ** keys)$/;"	f
+iniparser_getsecname	iniparser.c	/^const char * iniparser_getsecname(const dictionary * d, int n)$/;"	f
+iniparser_getsecnkeys	iniparser.c	/^int iniparser_getsecnkeys(const dictionary * d, const char * s)$/;"	f
+iniparser_getstring	iniparser.c	/^const char * iniparser_getstring(const dictionary * d, const char * key, const char * def)$/;"	f
+iniparser_line	iniparser.c	/^static line_status iniparser_line($/;"	f	file:
+iniparser_load	iniparser.c	/^dictionary * iniparser_load(const char * ininame)$/;"	f
+iniparser_set	iniparser.c	/^int iniparser_set(dictionary * ini, const char * entry, const char * val)$/;"	f
+iniparser_set_error_callback	iniparser.c	/^void iniparser_set_error_callback(int (*errback)(const char *, ...))$/;"	f
+iniparser_unset	iniparser.c	/^void iniparser_unset(dictionary * ini, const char * entry)$/;"	f
+key	dictionary.h	/^    char        **  key ;   \/** List of string keys *\/$/;"	m	struct:_dictionary_
+line_status	iniparser.c	/^} line_status ;$/;"	t	typeref:enum:_line_status_	file:
+main	main.c	/^main(int argc, char * argv[])$/;"	f
+n	dictionary.h	/^    int             n ;     \/** Number of entries in dictionary *\/$/;"	m	struct:_dictionary_
+objects	Makefile	/^objects = iniparser.o dictionary.o main.o$/;"	m
+size	dictionary.h	/^    ssize_t         size ;  \/** Storage size *\/$/;"	m	struct:_dictionary_
+start_socket	main.c	/^start_socket(int port)$/;"	f
+strlwc	iniparser.c	/^static const char * strlwc(const char * in, char *out, unsigned len)$/;"	f	file:
+strstrip	iniparser.c	/^static unsigned strstrip(char * s)$/;"	f	file:
+val	dictionary.h	/^    char        **  val ;   \/** List of string values *\/$/;"	m	struct:_dictionary_
+xstrdup	dictionary.c	/^static char * xstrdup(const char * s)$/;"	f	file:
+xstrdup	iniparser.c	/^static char * xstrdup(const char * s)$/;"	f	file:
